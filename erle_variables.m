@@ -3,7 +3,7 @@ global erle;
 erle.Deg_Rad = pi/180;
 erle.Rad_Deg = 180/pi;
 %% Simulación
-erle.T_simulacion = 5;%(segundos)
+% erle.T_simulacion = 5;%(segundos)
 erle.T_escalon_roll = 0;%(segundios)
 erle.T_escalon_pitch = 0;%(segundios)
 erle.T_escalon_yaw = 0;%(segundios)
@@ -42,17 +42,17 @@ erle.Y_dd_BF = 0;
 erle.Z_dd_BF = 0;
 
 %% Posiciones
-erle.X = 0;
-erle.Y = 0;
-erle.Z = 0;
+erle.X_GF = 0;
+erle.Y_GF = 0;
+erle.Z_GF = 0;
 %% Velocidades lineales
-erle.X_d = 0;
-erle.Y_d = 0;
-erle.Z_d = 0;
+erle.X_d_GF = 0;
+erle.Y_d_GF = 0;
+erle.Z_d_GF = 0;
 %% Aceleraciones lineales
-erle.X_dd = 0;
-erle.Y_dd = 0;
-erle.Z_dd = 0;
+erle.X_dd_GF = 0;
+erle.Y_dd_GF = 0;
+erle.Z_dd_GF = 0;
 
 %% Ángulos de inclinación
 erle.roll = 0;
@@ -202,11 +202,11 @@ erle.U4 = 0;
 erle.indice = 1;
 erle.time_plot = [0:erle.Tm:erle.T_simulacion];
 
-erle.U1_plot =   [0:erle.Tm:erle.T_simulacion];
+% erle.U1_plot =   [0:erle.Tm:erle.T_simulacion];
 erle.Z_des_plot = [0:erle.Tm:erle.T_simulacion];
-erle.Z_d_plot = [0:erle.Tm:erle.T_simulacion];
-erle.Z_plot = [0:erle.Tm:erle.T_simulacion];
-erle.Z_dd_plot = [0:erle.Tm:erle.T_simulacion];
+erle.Z_d_GF_plot = [0:erle.Tm:erle.T_simulacion];
+erle.Z_GF_plot = [0:erle.Tm:erle.T_simulacion];
+erle.Z_dd_GF_plot = [0:erle.Tm:erle.T_simulacion];
 erle.Z_dd_BF_plot = [0:erle.Tm:erle.T_simulacion];
 
 erle.p_plot =   [0:erle.Tm:erle.T_simulacion];
@@ -224,6 +224,6 @@ erle.U4_plot =   [0:erle.Tm:erle.T_simulacion];
 erle.yaw_des_plot = [0:erle.Tm:erle.T_simulacion];
 erle.ryaw_plot = [0:erle.Tm:erle.T_simulacion];
 
-erle.X_plot = [0:erle.Tm:erle.T_simulacion];
-erle.Y_plot = [0:erle.Tm:erle.T_simulacion];
+erle.X_GF_plot = [0:erle.Tm:erle.T_simulacion];
+erle.Y_GF_plot = [0:erle.Tm:erle.T_simulacion];
 
