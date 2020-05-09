@@ -7,21 +7,21 @@ U4 = in(4);
 
 global erle;
 
-    erle.X_dd_GF = ((cos(erle.roll)*cos(erle.yaw)*sin(erle.pitch) + sin(erle.roll)*sin(erle.yaw))*U1 - 0.15*erle.X_d_GF)/erle.m; 
-    erle.Y_dd_GF = ((cos(erle.roll)*sin(erle.yaw)*sin(erle.pitch) - sin(erle.roll)*cos(erle.yaw))*U1 - 0.15*erle.Y_d_GF)/erle.m;
-    erle.Z_dd_GF = ((cos(erle.roll)*cos(erle.pitch))*U1 - 0.3*erle.Z_d_GF)/erle.m - erle.g;
+    erle.X_dd_GF = (+(cos(erle.roll)*cos(erle.yaw)*sin(erle.pitch) + sin(erle.roll)*sin(erle.yaw))*U1 - 0.15*erle.X_d_GF)/erle.m; 
+    erle.Y_dd_GF = (+(cos(erle.roll)*sin(erle.yaw)*sin(erle.pitch) - sin(erle.roll)*cos(erle.yaw))*U1 - 0.15*erle.Y_d_GF)/erle.m;
+    erle.Z_dd_GF = (+(cos(erle.roll)*cos(erle.pitch))*U1 - 0.3*erle.Z_d_GF)/erle.m - erle.g;
 
-    erle.p_d = ((erle.Iyy - erle.Izz)*erle.q*erle.r - erle.Jr*erle.q*(erle.w0+erle.w1-erle.w2-erle.w3) + U2)/erle.Ixx;
-    erle.q_d = ((erle.Izz - erle.Ixx)*erle.p*erle.r + erle.Jr*erle.p*(erle.w0+erle.w1+erle.w2-erle.w3) + U3)/erle.Iyy;
+    erle.p_d = ((erle.Iyy - erle.Izz)*erle.q*erle.r - erle.Jr*erle.q*(-erle.w0-erle.w1+erle.w2+erle.w3) + U2)/erle.Ixx;
+    erle.q_d = ((erle.Izz - erle.Ixx)*erle.p*erle.r + erle.Jr*erle.p*(-erle.w0-erle.w1+erle.w2+erle.w3) + U3)/erle.Iyy;
     erle.r_d = ((erle.Ixx - erle.Iyy)*erle.p*erle.q + U4)/erle.Izz;
 %      Cálculo de p,q y r
     erle.p = erle.p_d * erle.Tm + erle.p;
     erle.q = erle.q_d * erle.Tm + erle.q;
     erle.r = erle.r_d * erle.Tm + erle.r;
 
-%     roll_d = erle.p + sin(erle.roll)*tan(erle.pitch)*erle.q + cos(erle.roll)*tan(erle.pitch)*erle.r;
-%     pitch_d = cos(erle.roll)*erle.q - sin(erle.roll)*erle.r;
-%     yaw_d = sin(erle.roll)/cos(erle.pitch) * erle.q + cos(erle.roll)/cos(erle.pitch) * erle.r;
+    roll_d = erle.p + sin(erle.roll)*tan(erle.pitch)*erle.q + cos(erle.roll)*tan(erle.pitch)*erle.r;
+    pitch_d = cos(erle.roll)*erle.q - sin(erle.roll)*erle.r;
+    yaw_d = sin(erle.roll)/cos(erle.pitch) * erle.q + cos(erle.roll)/cos(erle.pitch) * erle.r;
 %     
 %
 
@@ -38,9 +38,9 @@ erle.X_d_GF = erle.X_dd_GF * erle.Tm + erle.X_d_GF;
 erle.X_GF = erle.X_d_GF * erle.Tm + erle.X_GF;
 
 % Cálculo de los ángulos
-erle.roll = erle.p *erle.Tm + erle.roll;
-erle.pitch = erle.q * erle.Tm + erle.pitch;
-erle.yaw = erle.r * erle.Tm + erle.yaw;
+erle.roll = roll_d *erle.Tm + erle.roll;
+erle.pitch = pitch_d * erle.Tm + erle.pitch;
+erle.yaw = yaw_d * erle.Tm + erle.yaw;
 
 if( erle.indice <= size(erle.time_plot,2))
     %% Variables para graficar

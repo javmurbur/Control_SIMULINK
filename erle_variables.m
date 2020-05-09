@@ -71,6 +71,34 @@ erle.w1 = 0;
 erle.w2 = 0;
 erle.w3 = 0;
 
+%% Control de posición
+erle.X_des = 0;
+erle.Y_des = 0;
+erle.X_int = 0;
+erle.X_TI_F = 1;
+erle.X_KP_F = 1;
+erle.X_TI = 10;
+erle.X_TD = 2.5000;
+erle.X_KP = 0.3523;
+erle.X_KI = 0.0352;
+erle.X_KD = 0.8808;
+erle.X_des_filt_1 = 0;
+erle.X_ek_1 = 0;
+erle.X_Int_ek = 0;
+erle.pitch_max = 45*erle.Deg_Rad;
+
+erle.Y_TI_F = 1;
+erle.Y_KP_F = 1;
+erle.Y_TI = 0.4;
+erle.Y_TD = 0.1;
+erle.Y_KP = 34.4036;
+erle.Y_KI = 86.009;
+erle.Y_KD = 3.4404;
+erle.Y_des_filt_1 = 0;
+erle.Y_Int_ek = 0;
+erle.Y_ek_1 = 0;
+erle.roll_max = 45*erle.Deg_Rad;
+
 %% Control de altura
 %% Control de variación de ángulo
 erle.Z_des = 0;
@@ -202,11 +230,11 @@ erle.U4 = 0;
 erle.indice = 1;
 erle.time_plot = [0:erle.Tm:erle.T_simulacion];
 
-% erle.U1_plot =   [0:erle.Tm:erle.T_simulacion];
+erle.U1_plot =   [0:erle.Tm:erle.T_simulacion];
 erle.Z_des_plot = [0:erle.Tm:erle.T_simulacion];
-erle.Z_d_GF_plot = [0:erle.Tm:erle.T_simulacion];
-erle.Z_GF_plot = [0:erle.Tm:erle.T_simulacion];
-erle.Z_dd_GF_plot = [0:erle.Tm:erle.T_simulacion];
+erle.Z_d_plot = [0:erle.Tm:erle.T_simulacion];
+erle.Z_plot = [0:erle.Tm:erle.T_simulacion];
+erle.Z_dd_plot = [0:erle.Tm:erle.T_simulacion];
 erle.Z_dd_BF_plot = [0:erle.Tm:erle.T_simulacion];
 
 erle.p_plot =   [0:erle.Tm:erle.T_simulacion];
@@ -222,8 +250,10 @@ erle.pitch_plot = [0:erle.Tm:erle.T_simulacion];
 erle.r_plot =   [0:erle.Tm:erle.T_simulacion];
 erle.U4_plot =   [0:erle.Tm:erle.T_simulacion];
 erle.yaw_des_plot = [0:erle.Tm:erle.T_simulacion];
-erle.ryaw_plot = [0:erle.Tm:erle.T_simulacion];
+erle.yaw_plot = [0:erle.Tm:erle.T_simulacion];
 
-erle.X_GF_plot = [0:erle.Tm:erle.T_simulacion];
-erle.Y_GF_plot = [0:erle.Tm:erle.T_simulacion];
+erle.X_plot = [0:erle.Tm:erle.T_simulacion];
+erle.X_des_plot = [0:erle.Tm:erle.T_simulacion];
+erle.Y_plot = [0:erle.Tm:erle.T_simulacion];
+erle.Y_des_plot = [0:erle.Tm:erle.T_simulacion];
 

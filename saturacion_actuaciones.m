@@ -7,10 +7,11 @@ U2 = in(2);
 U3 = in(3);
 U4 = in(4);
 
-w0_2 = U1/(4*erle.Kt) - U2/(2*sqrt(2)*erle.l*erle.Kt) - U3/(2*sqrt(2)*erle.l*erle.Kt) + U4/(4*erle.Kd);
-w1_2 = U1/(4*erle.Kt) + U2/(2*sqrt(2)*erle.l*erle.Kt) + U3/(2*sqrt(2)*erle.l*erle.Kt) + U4/(4*erle.Kd);
-w2_2 = U1/(4*erle.Kt) + U2/(2*sqrt(2)*erle.l*erle.Kt) - U3/(2*sqrt(2)*erle.l*erle.Kt) - U4/(4*erle.Kd);
-w3_2 = U1/(4*erle.Kt) - U2/(2*sqrt(2)*erle.l*erle.Kt) + U3/(2*sqrt(2)*erle.l*erle.Kt) - U4/(4*erle.Kd);
+
+w0_2 = U1/(4*erle.Kt) - U2/(2*sqrt(2)*erle.l*erle.Kt) - U3/(2*sqrt(2)*erle.l*erle.Kt) - U4/(4*erle.Kd);
+w1_2 = U1/(4*erle.Kt) + U2/(2*sqrt(2)*erle.l*erle.Kt) + U3/(2*sqrt(2)*erle.l*erle.Kt) - U4/(4*erle.Kd);
+w2_2 = U1/(4*erle.Kt) + U2/(2*sqrt(2)*erle.l*erle.Kt) - U3/(2*sqrt(2)*erle.l*erle.Kt) + U4/(4*erle.Kd);
+w3_2 = U1/(4*erle.Kt) - U2/(2*sqrt(2)*erle.l*erle.Kt) + U3/(2*sqrt(2)*erle.l*erle.Kt) + U4/(4*erle.Kd);
 
 if w0_2 > erle.w_max^2
     w0_2 = erle.w_max^2;
@@ -49,7 +50,7 @@ erle.w3 = sqrt(w3_2);
 U1_out = erle.Kt*(erle.w0^2+erle.w1^2+erle.w2^2+erle.w3^2);
 U2_out = (sqrt(2)*erle.l*erle.Kt/2)*(+erle.w1^2+erle.w2^2-erle.w0^2-erle.w3^2);
 U3_out = (sqrt(2)*erle.l*erle.Kt/2)*(-erle.w0^2-erle.w2^2+erle.w1^2+erle.w3^2);
-U4_out = erle.Kd*(+erle.w0^2+erle.w1^2-erle.w2^2-erle.w3^2);
+U4_out = erle.Kd*(-erle.w0^2-erle.w1^2+erle.w2^2+erle.w3^2);
 
 erle.U1 = U1_out;
 erle.U2 = U2_out;
